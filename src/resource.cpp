@@ -41,6 +41,8 @@ Resource* ResourceBuilder::build(
 
     wl_resource_set_implementation(
         wlres, resource->getImplementation(), resource, destroy);
+
+    return resource;
 }
 
 void ResourceBuilder::bind(

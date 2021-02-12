@@ -12,8 +12,8 @@ Compositor::~Compositor()
 }
 
 struct wl_compositor_interface Compositor::mImplementation = {
-    Compositor::createSurface,
-    Compositor::createRegion
+    .create_surface = Compositor::createSurface,
+    .create_region = Compositor::createRegion
 };
 
 const void* Compositor::getImplementation()

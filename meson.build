@@ -5,11 +5,18 @@ project('wayland-mini-compositor',
 
 wayland_server = dependency('wayland-server')
 
+srcs = [
+     'src/main.cpp',
+     'src/display.cpp',
+     'src/resource.cpp',
+     'src/compositor.cpp',
+     'src/shm.cpp',
+     'src/shell.cpp'
+]
+
 executable('mini-comp',
-	[
-		'src/main.cpp',
-		'src/display.cpp',
-		'src/resource.cpp',
-		'src/compositor.cpp'
-	],
+	srcs,
 	dependencies: wayland_server)
+
+
+subdir('clients')

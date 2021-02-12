@@ -1,6 +1,10 @@
 
 #include "display.h"
 #include "compositor.h"
+#include "shm.h"
+#include "shell.h"
+#include "seat.h"
+#include "output.h"
 #include "log.h"
 
 using namespace minic;
@@ -10,7 +14,11 @@ int main(int argc, char* argv[])
     Display display;
 
     // setup global interfaces
-    display.add(new CompositorBuilder());
+    display.add(new CompositorBuilder()); // compositor
+    display.add(new ShmBuilder()); // shm
+    display.add(new ShellBuilder()); // shell
+    //    display.add(new SeatBuilder()); // seat
+    //display.add(new OutputBuilder()); // output
 
     // start listening socket
     auto sock_name = display.addSocket();
