@@ -53,7 +53,7 @@ const wl_interface* ShmBuilder::getInterface()
 
 uint32_t ShmBuilder::getVersion()
 {
-    return 1;
+    return WL_SHM_CREATE_POOL_SINCE_VERSION;
 }
 
 }

@@ -44,7 +44,7 @@ Resource* ShellBuilder::onCreate(
 {
     return new Shell();
 }
-    
+
 const wl_interface* ShellBuilder::getInterface()
 {
     return &wl_shell_interface;
@@ -52,7 +52,7 @@ const wl_interface* ShellBuilder::getInterface()
 
 uint32_t ShellBuilder::getVersion()
 {
-    return 1;
+    return WL_SHELL_GET_SHELL_SURFACE_SINCE_VERSION;
 }
     
 }

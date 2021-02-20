@@ -16,10 +16,10 @@ public:
 
 private:
     static void getShellSurface(
-	struct wl_client* client,
-	struct wl_resource* resource,
-	uint32_t id,
-	struct wl_resource* surface);
+        struct wl_client* client,
+        struct wl_resource* resource,
+        uint32_t id,
+        struct wl_resource* surface);
 
 private:
     static struct wl_shell_interface mImplementation;

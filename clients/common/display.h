@@ -20,32 +20,32 @@ public:
 
 protected:
     virtual void onGlobal(
-	wl_registry* wl_registry,
-	uint32_t name,
-	const char* interface,
-	uint32_t version);
+        wl_registry* wl_registry,
+        uint32_t name,
+        const char* interface,
+        uint32_t version);
     virtual void onGlobalRemove(
-	wl_registry* wl_registry,
-	uint32_t name);
+        wl_registry* wl_registry,
+        uint32_t name);
 
 private:
     static void onGlobal(
-	void* data,
-	wl_registry* registry,
-	uint32_t name,
-	const char* interface,
-	uint32_t version);
+        void* data,
+        wl_registry* registry,
+        uint32_t name,
+        const char* interface,
+        uint32_t version);
 
     static void onGlobalRemove(
-	void* data,
-	wl_registry* registry,
-	uint32_t name);
+        void* data,
+        wl_registry* registry,
+        uint32_t name);
 
     bool initInterface(
-	wl_registry* registry,
-	uint32_t name,
-	const char* interface,
-	uint32_t version);
+        wl_registry* registry,
+        uint32_t name,
+        const char* interface,
+        uint32_t version);
 
 private:
     wl_display* mDisplay;

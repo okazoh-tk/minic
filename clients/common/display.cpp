@@ -14,19 +14,19 @@ Display::Display(const char* name)
     mDisplay = wl_display_connect(name);
 
     if (!mDisplay) {
-	return ;
+        return ;
     }
 
     auto registry = wl_display_get_registry(
-	mDisplay);
+        mDisplay);
 
     mListener.global = onGlobal;
     mListener.global_remove = onGlobalRemove;
 
     wl_registry_add_listener(
-	registry,
-	&mListener,
-	this);
+        registry,
+        &mListener,
+        this);
 
     wl_display_dispatch(mDisplay);
     wl_display_roundtrip(mDisplay);
@@ -35,8 +35,8 @@ Display::Display(const char* name)
 Display::~Display()
 {
     if (mDisplay) {
-	wl_registry_destroy(mRegistry);
-	wl_display_disconnect(mDisplay);
+        wl_registry_destroy(mRegistry);
+        wl_display_disconnect(mDisplay);
     }
 }
 
@@ -74,7 +74,7 @@ wl_output* Display::getWlOutput() const
 int Display::dispatch()
 {
     if (!mDisplay) {
-	return -1;
+        return -1;
     }
 
     return wl_display_dispatch(mDisplay);
@@ -83,7 +83,7 @@ int Display::dispatch()
 int Display::dispatchPending()
 {
     if (!mDisplay) {
-	return -1;
+        return -1;
     }
 
     return wl_display_dispatch_pending(mDisplay);
