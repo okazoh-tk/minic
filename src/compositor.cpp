@@ -22,17 +22,31 @@ const void* Compositor::getImplementation()
 }
 
 void Compositor::createSurface(
-    wl_client* client,
-    wl_resource* compositor_resource,
+    struct wl_client* client,
+    struct wl_resource* resource,
     uint32_t id)
 {
+    auto thiz = reinterpret_cast<Compositor*>(
+        wl_resource_get_user_data(resource));
+
+    thiz->mSurfaceBuilder.build(
+        client,
+        thiz->mSurfaceBuilder.getVersion(),
+        id);
 }
 
 void Compositor::createRegion(
-    wl_client* client,
-    wl_resource* compositor_resource,
+    struct wl_client* client,
+    struct wl_resource* resource,
     uint32_t id)
 {
+    auto thiz = reinterpret_cast<Compositor*>(
+        wl_resource_get_user_data(resource));
+
+    thiz->mRegionBuilder.build(
+        client,
+        thiz->mRegionBuilder.getVersion(),
+        id);
 }
 
 
@@ -45,13 +59,13 @@ CompositorBuilder::~CompositorBuilder()
 }
 
 Resource* CompositorBuilder::onCreate(
-    wl_client* client,
+    struct wl_client* client,
     uint32_t& version)
 {
     return new Compositor();
 }
 
-const wl_interface* CompositorBuilder::getInterface()
+const struct wl_interface* CompositorBuilder::getInterface()
 {
     return &wl_compositor_interface;
 }

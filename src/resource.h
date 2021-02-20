@@ -30,7 +30,7 @@ protected:
     virtual Resource* onCreate(
         wl_client* client,
         uint32_t& version) = 0;
-    
+
     virtual const wl_interface* getInterface() = 0;
     virtual uint32_t getVersion() = 0;
 

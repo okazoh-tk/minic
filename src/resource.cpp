@@ -17,6 +17,7 @@ const void* Resource::getImplementation()
     return nullptr;
 }
 
+
 ResourceBuilder::ResourceBuilder()
 {
 }
@@ -24,7 +25,6 @@ ResourceBuilder::ResourceBuilder()
 ResourceBuilder::~ResourceBuilder()
 {
 }
-
 
 Resource* ResourceBuilder::build(
     wl_client* client,

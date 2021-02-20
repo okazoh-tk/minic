@@ -5,7 +5,6 @@ namespace minic {
 
 Shm::Shm()
 {
-
 }
 
 Shm::~Shm()
@@ -40,13 +39,13 @@ ShmBuilder::~ShmBuilder()
 }
 
 Resource* ShmBuilder::onCreate(
-    wl_client* client,
+    struct wl_client* client,
     uint32_t& version)
 {
     return new Shm();
 }
 
-const wl_interface* ShmBuilder::getInterface()
+const struct wl_interface* ShmBuilder::getInterface()
 {
     return &wl_shm_interface;
 }

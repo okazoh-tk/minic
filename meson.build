@@ -12,7 +12,9 @@ srcs = [
      'src/compositor.cpp',
      'src/shm.cpp',
      'src/shell.cpp',
-     'src/seat.cpp'
+     'src/seat.cpp',
+     'src/surface.cpp',
+     'src/region.cpp'
 ]
 
 executable('mini-comp',

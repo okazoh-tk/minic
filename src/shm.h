@@ -31,13 +31,13 @@ public:
     ShmBuilder();
     ~ShmBuilder() override;
 
+    const struct wl_interface* getInterface() override;
+    uint32_t getVersion() override;
+
 protected:
     Resource* onCreate(
         struct wl_client* client,
         uint32_t& version) override;
-
-    const struct wl_interface* getInterface() override;
-    uint32_t getVersion() override;
 };
 
 }
